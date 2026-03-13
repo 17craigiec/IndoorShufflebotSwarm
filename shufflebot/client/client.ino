@@ -1,7 +1,5 @@
-#include <WiFi.h>
-#include <EEPROM.h>
 
-#include "config.hh"
+#include "WifiMessenger.hh"
 
 Config config;
 

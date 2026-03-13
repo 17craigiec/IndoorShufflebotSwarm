@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "name": "ESP32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/build/**",
+        "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/**",
+        // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/cores/esp32",
+        // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/variants/esp32",
+        // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/libraries/EEPROM/src",
+        // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/libraries/WiFi/src",
+        // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/tools/esp32-libs/3.3.7/include",
+        "/usr/include"
+      ],
+      "defines": [
+        "ESP32",
+        "ARDUINO=10819",
+        "ARDUINO_ESP32_DEV",
+        "ARDUINO_ARCH_ESP32"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "compilerPath": "/usr/bin/gcc"
+    }
+  ],
+  "version": 4
+}

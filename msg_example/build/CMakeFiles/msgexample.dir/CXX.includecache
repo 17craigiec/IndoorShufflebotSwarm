@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../msgs/MessageInterface.hh
+SpeedCurvCommand.hh
+../../msgs/SpeedCurvCommand.hh
+Telemetry.hh
+../../msgs/Telemetry.hh
+TimeSync.hh
+../../msgs/TimeSync.hh
+cstddef
+-
+cstring
+-
+cstdio
+-
+
+../../msgs/SpeedCurvCommand.hh
+
+../../msgs/Telemetry.hh
+cstdint
+-
+
+../../msgs/TimeSync.hh
+
+/home/craigie/git/IndoorShufflebotSwarm/msg_example/msgexample.cc
+MessageInterface.hh
+/home/craigie/git/IndoorShufflebotSwarm/msg_example/MessageInterface.hh
+cstdlib
+-
+iostream
+-
+string
+-
+

@@ -16,7 +16,7 @@ rm -rf build/
 
 # Compile
 echo "=== Compiling ==="
-arduino-cli compile --fqbn esp32:esp32:esp32 --build-path ./build .
+arduino-cli compile --fqbn esp32:esp32:esp32 --build-path ./build -I../../msgs .
 # Upload
 echo "=== Uploading ==="
 arduino-cli upload -p $USBPORT --fqbn esp32:esp32:esp32 --build-path ./build .
