@@ -4,6 +4,9 @@ project(msgexample)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Add debug symbols
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0")
+
 # include msgs directory for headers
 include_directories(${CMAKE_SOURCE_DIR}/../msgs)
 add_executable(msgexample msgexample.cc)

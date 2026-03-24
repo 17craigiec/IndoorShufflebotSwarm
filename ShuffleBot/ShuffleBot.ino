@@ -18,6 +18,7 @@ double syncd_time_sec = 0.0;
 // TCP Server
 const int TCP_PORT = 7600;
 WiFiServer server(TCP_PORT);
+String server_ip = "192.168.1.191";
 
 // Serializers - Writer
 Telemetry telemetry;
@@ -109,7 +110,7 @@ void populateAndWriteTelemetry()
   telemetry_serializer.Write(buffer, msg_size);
 
   // Send it!
-  writePacketUDP("192.168.1.191", config.port, buffer, msg_size);
+  writePacketUDP(server_ip, config.port, buffer, msg_size);
 }
 
 

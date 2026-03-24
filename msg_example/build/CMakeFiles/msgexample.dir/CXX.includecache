@@ -6,13 +6,9 @@
 
 #IncludeRegexTransform: 
 
-../../msgs/MessageInterface.hh
-SpeedCurvCommand.hh
-../../msgs/SpeedCurvCommand.hh
-Telemetry.hh
-../../msgs/Telemetry.hh
-TimeSync.hh
-../../msgs/TimeSync.hh
+../../msgs/MessageSerializer.hh
+MessageType.hh
+../../msgs/MessageType.hh
 cstddef
 -
 cstring
@@ -20,17 +16,19 @@ cstring
 cstdio
 -
 
-../../msgs/SpeedCurvCommand.hh
+../../msgs/MessageType.hh
 
 ../../msgs/Telemetry.hh
 cstdint
 -
 
-../../msgs/TimeSync.hh
-
 /home/craigie/git/IndoorShufflebotSwarm/msg_example/msgexample.cc
-MessageInterface.hh
-/home/craigie/git/IndoorShufflebotSwarm/msg_example/MessageInterface.hh
+MessageType.hh
+/home/craigie/git/IndoorShufflebotSwarm/msg_example/MessageType.hh
+MessageSerializer.hh
+/home/craigie/git/IndoorShufflebotSwarm/msg_example/MessageSerializer.hh
+Telemetry.hh
+/home/craigie/git/IndoorShufflebotSwarm/msg_example/Telemetry.hh
 cstdlib
 -
 iostream

@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/msgexample.dir/msgexample.cc.o  -o msgexample 
+/usr/bin/c++   -g -O0   CMakeFiles/msgexample.dir/msgexample.cc.o  -o msgexample 

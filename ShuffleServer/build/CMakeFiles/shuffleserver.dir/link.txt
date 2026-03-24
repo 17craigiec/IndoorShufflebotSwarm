@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -O0   CMakeFiles/shuffleserver.dir/ShuffleServer.cc.o CMakeFiles/shuffleserver.dir/shuttleservermain.cc.o  -o shuffleserver  -lpthread 

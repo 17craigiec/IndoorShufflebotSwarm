@@ -1,0 +1,3 @@
+/home/craigie/git/IndoorShufflebotSwarm/ShuffleServer/build/CMakeFiles/rebuild_cache.dir
+/home/craigie/git/IndoorShufflebotSwarm/ShuffleServer/build/CMakeFiles/edit_cache.dir
+/home/craigie/git/IndoorShufflebotSwarm/ShuffleServer/build/CMakeFiles/shuffleserver.dir

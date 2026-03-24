@@ -1,4 +1,6 @@
-#include "MessageInterface.hh"
+#include "MessageType.hh"
+#include "MessageSerializer.hh"
+#include "Telemetry.hh"
 
 #include <cstdlib>
 #include <iostream>
@@ -25,21 +27,28 @@ int main(int argc, char const *argv[])
     }
     std::cout << "Instance ID: " << instance_id << std::endl;
 
-    // Initialize message interface
-    MessageInterface msg_interface;
+    // Example usage of MessageInterface with random telemetry data
+    Telemetry *telemetry = new Telemetry();
+    telemetry->robot_id_ = instance_id;
+    telemetry->pos_.x_ = 1.0f * instance_id;
+    telemetry->pos_.y_ = 2.0f * instance_id;
+    telemetry->vel_.x_ = 0.5f * instance_id;
+    telemetry->vel_.y_ = 0.5f * instance_id;
+    telemetry->acc_.x_ = 0.1f * instance_id;
+    telemetry->acc_.y_ = 0.1f * instance_id;
+    telemetry->heading_ = 45.0f * instance_id;
 
-    // Example usage of MessageInterface
-    Telemetry telemetry;
-    telemetry.robot_id_ = instance_id;
-    telemetry.pos_.x_ = 1.0f * instance_id;
-    telemetry.pos_.y_ = 2.0f * instance_id;
-    telemetry.vel_.x_ = 0.5f * instance_id;
-    telemetry.vel_.y_ = 0.5f * instance_id;
-    telemetry.acc_.x_ = 0.1f * instance_id;
-    telemetry.acc_.y_ = 0.1f * instance_id;
-    telemetry.heading_ = 45.0f * instance_id;
+    printf("\nStaring Telemetry - To be written.\n");
+    printTelemetry(*telemetry);
 
-    if (msg_interface.WriteTelemetry(telemetry) == 0)
+    // Initialize WRITE message interface
+    // =============================================================================
+    MessageSerializer<Telemetry> telemetry_writer(telemetry, MTYPE_TELEMETRY);
+    // TelemetrySerializer telemetry_writer(telemetry);
+    unsigned int msg_size = telemetry_writer.GetMessageSize();
+    unsigned char *write_buffer = new unsigned char[msg_size];
+
+    if (telemetry_writer.Write(write_buffer, msg_size) == 0)
     {
         std::cout << "Telemetry message written successfully!" << std::endl;
     }
@@ -48,27 +57,22 @@ int main(int argc, char const *argv[])
         std::cerr << "Failed to write telemetry message." << std::endl;
     }
 
+    // Initialize READ message interface
+    // =============================================================================
+    Telemetry output_telemetry;
+    MessageSerializer<Telemetry> telemetry_reader(MTYPE_TELEMETRY);
     // Take the write buffer and parse it back to verify correctness
-    MessageType parsed_type;
-    if (msg_interface.ParseMessage(msg_interface.write_buffer_, parsed_type) == 0)
+    if (telemetry_reader.Read(write_buffer, msg_size, &output_telemetry) == 0)
     {
-        std::cout << "Message parsed successfully! Type: " << parsed_type << std::endl;
+        std::cout << "Message parsed successfully!" << std::endl;
     }
     else
     {
         std::cerr << "Failed to parse message." << std::endl;
     }
 
-    // Print all fields of the parsed telemetry message
-    if (parsed_type == MTYPE_TELEMETRY)
-    {
-        std::cout << "Parsed Telemetry:" << std::endl;
-        std::cout << "  Robot ID: " << msg_interface.telemetry_.robot_id_ << std::endl;
-        std::cout << "  Position: (" << msg_interface.telemetry_.pos_.x_ << ", " << msg_interface.telemetry_.pos_.y_ << ")" << std::endl;
-        std::cout << "  Velocity: (" << msg_interface.telemetry_.vel_.x_ << ", " << msg_interface.telemetry_.vel_.y_ << ")" << std::endl;
-        std::cout << "  Acceleration: (" << msg_interface.telemetry_.acc_.x_ << ", " << msg_interface.telemetry_.acc_.y_ << ")" << std::endl;
-        std::cout << "  Heading: " << msg_interface.telemetry_.heading_ << std::endl;
-    }
+    printf("\nParsed Telemetry - Has been read.\n");
+    printTelemetry(output_telemetry);
 
     return 0;
 }

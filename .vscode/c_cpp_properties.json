@@ -5,7 +5,7 @@
       "includePath": [
         "${workspaceFolder}/**",
         "${workspaceFolder}/build/**",
-        "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/**",
+        "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/libraries/**",
         // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/cores/esp32",
         // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/variants/esp32",
         // "/home/craigie/.arduino15/packages/esp32/hardware/esp32/3.3.7/libraries/EEPROM/src",
